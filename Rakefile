@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Atomicjot::Application.load_tasks
+AtomicJot::Application.load_tasks

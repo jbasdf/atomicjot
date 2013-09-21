@@ -1,35 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Atomicjot" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Atomicjot" %>">
+    <title><%= content_for?(:title) ? yield(:title) : "AtomicJot" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "AtomicJot" %>">
     <%= stylesheet_link_tag "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="favicon.png">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <%= javascript_include_tag 'html5shiv' %>
+      <%= javascript_include_tag 'html5shiv-printshiv' %>
+      <%= javascript_include_tag 'respond.min' %>
+    <![endif]-->
+    <%= render :partial => 'layouts/global/google_analytics' %>
+    <%- if user_signed_in? %>
+      <meta name="current-user" content="<%= json_for(current_user) %>" />
+      <meta name="authentication-token" content="<%= current_user.authentication_token %>" />
+    <% end %>
   </head>
-  <body class="<%= controller_name %> <%= action_name %>">
-    <div class="navbar navbar-fixed-top">
-      <nav class="navbar-inner">
-        <div class="container">
-          <%= render 'layouts/navigation' %>
-        </div>
-      </nav>
-    </div>
-    <div id="main" role="main">
-      <div class="container">
-        <div class="content">
-           <div class="row">
-            <div class="span12">
-              <%= render 'layouts/messages' %>
-              <%= yield %>
-            </div>
-          </div>
-          <footer>
-          </footer>
-        </div>
-      </div> <!--! end of .container -->
-    </div> <!--! end of #main -->
+  <body>
+    <%= javascript_include_tag "application" %>
   </body>
 </html>
+
