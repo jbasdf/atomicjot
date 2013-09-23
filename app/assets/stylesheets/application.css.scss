@@ -3,22 +3,39 @@
 @import 'twitter/bootstrap/glyphicons';
 @import 'offcanvas';
 
-html,
 body {
-
-}
-
-.navbar{
-
-}
-.wrapper {
-  @include make-row();
-}
-.main {
-  @include make-sm-column(9);
   background: $clouds;
 }
-.sidebar {
-  @include make-sm-column(3);
+.navbar-inverse {
   background: $wet_asphalt;
+}
+
+.product{
+  float:left;
+  width:160px;
+  height:200px;
+  margin: 0 5px 20px;
+  background: $white;
+  border-radius: 9px;
+  padding: 5px;
+  .display{
+    width:100%;
+  }
+  .details{
+    display: none;
+  }
+  &.is-selected{
+    width:330px;
+    .display{
+      width:160px;
+    }
+    .details{
+      width:160px;
+      display: block;
+    }
+  }
+  img{
+    max-width: 100%;
+    width: 100%;
+  }
 }

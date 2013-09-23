@@ -120,11 +120,12 @@ class AvantLink::Api
     self.do_get(query)
   end
 
-  def product_search(website_id, search)
+  def product_search(website_id, search, search_results_count = 100)
     query = {
       :module => 'ProductSearch',
       :website_id => website_id,
       :search_term => search,
+      :search_results_count  => search_results_count,
       :affiliate_id => @auth[:affiliate_id]
     }
     self.do_get(query)

@@ -1,5 +1,11 @@
-<div class="col-6 col-sm-6 col-lg-4">
-  <h2>{{product.name}}</h2>
-  <img {{bind-attr src=product.thumb_url alt=product.name}} />
-  <p>{{product.description}}</p>
+<div {{bind-attr class=":product isSelected"}} {{action 'select'}}>
+  <div class="display pull-left">
+    <img {{bind-attr src=image_url alt=name}} />
+    {{merchant_name}}
+    {{price}}
+  </div>
+  <div class="details pull-right">
+    {{name}}
+    {{summary}}
+  </div>
 </div>

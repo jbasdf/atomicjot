@@ -6,7 +6,7 @@ class Api::ProductsController < ApplicationController
     if params[:query]
       user = current_user || User.first
       api = AvantLink::Api.new(user.affiliate_id, user.auth_key)
-      results = api.product_search(current_website.external_id, params[:query])
+      results = api.product_search(current_website.external_id, params[:query], 100)
       products = []
       results.each do |result|
         products << result_to_product(result)
